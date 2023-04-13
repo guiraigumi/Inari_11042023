@@ -11,6 +11,8 @@ public class PlayerManager_2players : MonoBehaviour
     private GameObject activeCharacter;
     private Vector3 lastPosition;
 
+    public GameObject librarian;
+
     [SerializeField] private GameObject radialMenu;
 
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class PlayerManager_2players : MonoBehaviour
     {
         activeCharacter = lua;
         lastPosition = lua.transform.position;
+        librarian = GameObject.Find("Bibliotecaria");
     }
 
     // Update is called once per frame
@@ -57,6 +60,8 @@ public class PlayerManager_2players : MonoBehaviour
             radialMenu.SetActive(false);
             Time.timeScale = 1f;
             activeCharacter.GetComponentInChildren<Animator>().enabled = true;
+            librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = true;
+            librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = false;
         }
 
         if((radialMenu.activeInHierarchy == true) && Input.GetKeyDown(KeyCode.Alpha2))
@@ -69,8 +74,10 @@ public class PlayerManager_2players : MonoBehaviour
             radialMenu.SetActive(false);
             Time.timeScale = 1f;
             activeCharacter.GetComponentInChildren<Animator>().enabled = true;
+            librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = true;
+            librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = false;
         }
-        
-}
+
+    }
 }
 

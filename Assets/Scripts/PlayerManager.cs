@@ -10,10 +10,14 @@ public class PlayerManager : MonoBehaviour
 [SerializeField] private GameObject hangin;
 [SerializeField] private GameObject kalju;
 
+    public GameObject librarian;
+
 public GameObject fireLua;
 
 private GameObject activeCharacter;
 private Vector3 lastPosition;
+
+
 
 [SerializeField] private GameObject radialMenu;
 private bool isRadialMenuOpen;
@@ -23,7 +27,8 @@ void Start()
 {
     activeCharacter = lua;
     lastPosition = lua.transform.position;
-}
+    librarian = GameObject.Find("Librarian");
+    }
 
 // Update is called once per frame
 void Update()
@@ -104,6 +109,36 @@ private void SwitchCharacter(GameObject newCharacter)
     Time.timeScale = 1f;
 
     isRadialMenuOpen = false;
-}
+
+        if (activeCharacter == lua)
+        {
+            // Activate the script on the Librarian character
+            librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = true;
+            // Deactivate the other script on the Librarian character
+            librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = false;
+        }
+        else
+        {
+            // Deactivate the script on the Librarian character
+            librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = false;
+            // Activate the other script on the Librarian character
+            librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = true;
+        }
+
+        if (activeCharacter == ruhe)
+        {
+            // Activate the script on the Librarian character
+            librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = true;
+            // Deactivate the other script on the Librarian character
+            librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = false;
+        }
+        else
+        {
+            // Deactivate the script on the Librarian character
+            librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = false;
+            // Activate the other script on the Librarian character
+            librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = true;
+        }
+    }
 
 }
