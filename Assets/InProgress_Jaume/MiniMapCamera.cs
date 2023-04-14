@@ -24,28 +24,24 @@ public class MiniMapCamera : MonoBehaviour
         {
             transform.position = new Vector3(lua.position.x, transform.position.y, lua.position.z);
 
-            transform.rotation = Quaternion.Euler(90, lua.eulerAngles.y, 0);  
         }
 
         if((player2.activeInHierarchy == true))
         {
             transform.position = new Vector3(ruhe.position.x, transform.position.y, ruhe.position.z);
 
-            transform.rotation = Quaternion.Euler(90, ruhe.eulerAngles.y, 0);  
         }
 
         if((player3.activeInHierarchy == true))
         {
             transform.position = new Vector3(hangin.position.x, transform.position.y, hangin.position.z);
 
-            transform.rotation = Quaternion.Euler(90, hangin.eulerAngles.y, 0);  
         }
 
         if((player4.activeInHierarchy == true))
         {
             transform.position = new Vector3(kalju.position.x, transform.position.y, kalju.position.z);
 
-            transform.rotation = Quaternion.Euler(90, kalju.eulerAngles.y, 0);  
         }
 
 

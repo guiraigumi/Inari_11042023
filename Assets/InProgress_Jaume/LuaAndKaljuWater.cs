@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class LuaAndKaljuWater : MonoBehaviour
 {
+
+    void Start()
+    {
+
+    }
+    
     public Material defaultMaterial;
 
     void OnTriggerExit(Collider collider)

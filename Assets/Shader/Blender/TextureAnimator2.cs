@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextureAnimator : MonoBehaviour
+public class TextureAnimator2 : MonoBehaviour
 {
     public float scrollSpeedX;
     public float scrollSpeedY;

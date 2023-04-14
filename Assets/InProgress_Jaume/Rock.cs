@@ -17,10 +17,15 @@ public class Rock : MonoBehaviour
 {
     if (collider.gameObject.CompareTag("Kalju") && Input.GetKeyDown(KeyCode.F) && (kalju.activeSelf == true))
     {
-        this.gameObject.SetActive(false);
-
-        particleExplosion.gameObject.SetActive(true);
-
+       Invoke("DeactivateRock", 1f);
     }
 }
+
+void DeactivateRock()
+{
+    this.gameObject.SetActive(false);
+
+    particleExplosion.gameObject.SetActive(true);
+}
+
 }

@@ -28,6 +28,11 @@ public class MenuManager : MonoBehaviour
        SceneManager.LoadScene("Main Menu");
    }
 
+   public void LoadLvlSubterraneo()
+   {
+    SceneManager.LoadScene("Subterráneo LVL 2");
+   }
+
    public void BattleScene()
    {
         SceneManager.LoadScene("Battle Scene");
