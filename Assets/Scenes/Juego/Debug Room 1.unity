@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 14534.664, g: 5404.7773, b: 4677.5957, a: 1}
+  m_IndirectSpecularColor: {r: 696.1052, g: 1221.3906, b: 1530.9209, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -309,7 +309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519be87a3558378439967f520bbed44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerInRange: 0
   currentState: 0
   destinationPoints:
   - {fileID: 1961204840}
@@ -29105,7 +29104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &720467595
 Transform:
   m_ObjectHideFlags: 0
@@ -33340,7 +33339,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836293195}
-  m_LocalRotation: {x: 0.2592352, y: -0.0054302374, z: 0.020226179, w: 0.9655872}
+  m_LocalRotation: {x: 0.2592352, y: -0.005430171, z: 0.02022616, w: 0.9655872}
   m_LocalPosition: {x: 6.4448853, y: 9.66, z: -11.271804}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40858,7 +40857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1050493616
 Transform:
   m_ObjectHideFlags: 0
@@ -42560,6 +42559,9 @@ MonoBehaviour:
   transitionSFX: {fileID: 0}
   bookSFX: {fileID: 8300000, guid: ab70ec9835a627840949b171a75bca76, type: 3}
   doorSFX: {fileID: 8300000, guid: cbdb0866d43acbc47b414c484f00c806, type: 3}
+  waterupSFX: {fileID: 0}
+  jumpSFX: {fileID: 0}
+  fireSFX: {fileID: 0}
 --- !u!82 &1106058878
 AudioSource:
   m_ObjectHideFlags: 0
@@ -48878,6 +48880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  destinationPoints: []
   visionRange: 3.7
   visionAngle: 90
   obstaclesMask:
@@ -59905,6 +59908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  destinationPoints: []
   visionRange: 3.7
   visionAngle: 90
   obstaclesMask:
@@ -76867,7 +76871,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969311933}
-  m_LocalRotation: {x: 0.25929204, y: -0.000000016617905, z: 0.0000000044614774, w: 0.965799}
+  m_LocalRotation: {x: 0.25929204, y: 0.000000016617905, z: -0.0000000044614774, w: 0.965799}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -77100,6 +77104,7 @@ MonoBehaviour:
   teleportLocation: {fileID: 1321551930}
   activationKey: 32
   animationTrigger: Teleport
+  abilityIcon: {fileID: 0}
 --- !u!1 &1974782074
 GameObject:
   m_ObjectHideFlags: 0
@@ -79249,8 +79254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTalking: 0
-  testManager: {fileID: 0}
-  transition: {fileID: 0}
   dialoguePanel: {fileID: 1037770768}
   dialogueMark: {fileID: 1969034942}
   dialogueText: {fileID: 1826921825}
@@ -81332,7 +81335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519be87a3558378439967f520bbed44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerInRange: 0
   currentState: 0
   destinationPoints:
   - {fileID: 1961204840}
@@ -93074,10 +93076,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265b1020a4bd039489d6c3962d002a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rockSound: {fileID: 8300000, guid: 2325415467b0f2d4497cbe63cf1c10ea, type: 3}
   kalju: {fileID: 2114817375354054682}
+  particleExplosion: {fileID: 0}
   abilityIcon: {fileID: 1819260699}
   AbilityiconSound: {fileID: 8300000, guid: 05e72bae7ece5af49b71ee12e3a90546, type: 3}
-  rockSound: {fileID: 8300000, guid: 2325415467b0f2d4497cbe63cf1c10ea, type: 3}
 --- !u!114 &2114817375354054688
 MonoBehaviour:
   m_ObjectHideFlags: 0

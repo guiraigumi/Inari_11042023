@@ -13,7 +13,10 @@ public class Dialogue : MonoBehaviour
     public bool isTalking;
     private int lineIndex;
     GameObject target;
+    GameObject npc;
+    private Quaternion originalYRotation;
 
+    Animator anim;
     Player player; 
 
     private float typingTime = 0.05f;
@@ -25,6 +28,7 @@ public class Dialogue : MonoBehaviour
 
     void Awake()
     {
+        anim = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").GetComponent<Player>();
     }
 
@@ -65,11 +69,16 @@ public class Dialogue : MonoBehaviour
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
         lineIndex = 0;
+        anim.SetBool("isTalking", true);
         
         StartCoroutine(ShowLine());
         target = GameObject.Find("Front");
+        npc = GameObject.Find("NPC");
+        originalYRotation = npc.transform.rotation;
+        Debug.Log("Rotation NPC: " + originalYRotation);
         Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
 
+        npc.transform.LookAt(targetPosition);
         player.isplayerTalking = true;
     }
 
@@ -84,8 +93,10 @@ public class Dialogue : MonoBehaviour
         {
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
+            anim.SetBool("isTalking", false);
+            npc = GameObject.Find("NPC");
 
-
+            npc.transform.SetPositionAndRotation(new Vector3(npc.transform.position.x, npc.transform.position.y, npc.transform.position.z), originalYRotation);
             player.isplayerTalking = false;
             //Time.timeScale = 1f;
         }

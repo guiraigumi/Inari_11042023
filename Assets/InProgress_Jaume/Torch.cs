@@ -8,62 +8,38 @@ public class Torch : MonoBehaviour
     public GameObject torchLight;
     [SerializeField] private GameObject abilityIcon;
     [SerializeField] private AudioClip AbilityiconSound;
-    [SerializeField] private AudioClip torchSound;
-
-    public bool istorchOn;
 
     private AudioSource audio;
 
 void Start()
 {
-    audio = GetComponent<AudioSource>();
+    audio = audio = GetComponent<AudioSource>();
 }
 
 void OnTriggerEnter(Collider collision)
 {
     if(collision.gameObject.CompareTag("Player"))
     {
-        if(!istorchOn) {
-            abilityIcon.SetActive(true);
-            audio.PlayOneShot(AbilityiconSound);
-        }
-    }
-
-    if(collision.gameObject.CompareTag("Player") && istorchOn == false && LuaOnFieldAbility.Instance.fire == true)
-    {
-        audio.PlayOneShot(torchSound);
-        abilityIcon.SetActive(false);
-        torchLight.gameObject.SetActive(true);
-        fireParticles.gameObject.SetActive(true);
+        abilityIcon.SetActive(true);
+        audio.PlayOneShot(AbilityiconSound);
     }
 }
 
 void OnTriggerStay(Collider collision)
 {
-
-    if(collision.gameObject.CompareTag("Player") && LuaOnFieldAbility.Instance.fire == true && istorchOn == false)
+    if(collision.gameObject.CompareTag("Player") && LuaOnFieldAbility.Instance.fire == true)
     {
         torchLight.gameObject.SetActive(true);
         
         fireParticles.gameObject.SetActive(true);
-
-        abilityIcon.SetActive(false);
-    
-        istorchOn = true;
-
-        audio.PlayOneShot(torchSound);
-
     }
-
 }
 
 void OnTriggerExit(Collider collision)
 {
     if(collision.gameObject.CompareTag("Player"))
     {
-        if(!istorchOn) {
-            abilityIcon.SetActive(false);
-        }
+        abilityIcon.SetActive(false);
     }
 }
 

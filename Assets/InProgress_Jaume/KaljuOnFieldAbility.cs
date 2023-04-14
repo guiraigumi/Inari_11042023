@@ -6,17 +6,18 @@ public class KaljuOnFieldAbility : MonoBehaviour
 {
     private Animator anim;
     private AudioSource audio;
+    [SerializeField] private AudioClip rockSound;
 
     [SerializeField] private GameObject kalju;
+    [SerializeField] private GameObject particleExplosion;
      [SerializeField] private GameObject abilityIcon;
     [SerializeField] private AudioClip AbilityiconSound;
-    [SerializeField] private AudioClip rockSound;
 
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
 
-        audio = GetComponentInChildren<AudioSource>();
+        audio = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider collider)
@@ -32,9 +33,12 @@ public class KaljuOnFieldAbility : MonoBehaviour
 {
     if (collider.gameObject.CompareTag("Rock") && Input.GetKeyDown(KeyCode.F) && (kalju.activeSelf == true))
     {
-        abilityIcon.SetActive(false);
-        
+        collider.gameObject.SetActive(false);
+
+        particleExplosion.gameObject.SetActive(true);
+
         audio.PlayOneShot(rockSound);
+
     }
 }
 

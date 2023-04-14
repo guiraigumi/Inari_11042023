@@ -14,7 +14,8 @@ public class NPC_earth : MonoBehaviour
     GameObject npc;
 
     Animator anim;
-    Player player; 
+    public Player player;
+    public Player player2;
 
     private float typingTime = 0.05f;
 
@@ -68,6 +69,7 @@ public class NPC_earth : MonoBehaviour
 
         npc.transform.LookAt(targetPosition);
         player.isplayerTalking = true;
+        player2.isplayerTalking = true;
     }
 
     private void NextDialogueLine()
@@ -85,6 +87,7 @@ public class NPC_earth : MonoBehaviour
             npc = GameObject.Find("");
 
             player.isplayerTalking = false;
+            player2.isplayerTalking = false;
             //Time.timeScale = 1f;
         }
     }

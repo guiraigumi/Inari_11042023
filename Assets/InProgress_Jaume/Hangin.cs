@@ -72,20 +72,20 @@ void OnTriggerStay(Collider other)
 
 void OnTriggerExit(Collider other)
 {
-    Renderer iceRenderer = other.gameObject.GetComponent<Renderer>();
-    
-    if (iceRenderer != null)
-    {
-        if (iceRenderer.material == newMaterial)
-        {
-            iceRenderer.material = defaultMaterial;
-            isUsingDefaultMaterial = true;
-        }
-    }
-    
-    abilityIcon.SetActive(false);
-}
 
+      if(hangin.activeSelf == true && other.gameObject.CompareTag("Ice"))
+    {
+        Renderer iceRenderer = other.gameObject.GetComponent<Renderer>();
+        
+        abilityIcon.SetActive(false);
+
+        isUsingDefaultMaterial = true;
+
+        iceRenderer.material = defaultMaterial;
+
+        //audio.PlayOneShot(waterConversion);
+    }
+}
 
 void DeactivateHanginMagic()
 {

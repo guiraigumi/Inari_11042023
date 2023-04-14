@@ -20,6 +20,10 @@ public class AI_NPCs_Random : MonoBehaviour
 
     NavMeshAgent agent;
 
+    public Transform[] destinationPoints;
+    
+    int destinationIndex = 0;
+
     [SerializeField] private float visionRange;
 
     [SerializeField] [Range(0, 360)] private float visionAngle;
@@ -72,9 +76,9 @@ public class AI_NPCs_Random : MonoBehaviour
                 Wait();
             break;
 
-            /*case State.Dialoguing:
+            case State.Dialoguing:
                 Dialoguing();
-            break;*/
+            break;
         }
     }
 
@@ -128,25 +132,12 @@ public class AI_NPCs_Random : MonoBehaviour
             currentState = State.Patrolling;
         }
 
-        /*if(isPlayerInRange == true && Input.GetButtonDown("Submit"))
-        {
-            Debug.Log("Cambio a estado dialogo");
+        if(isPlayerInRange = true && Input.GetButtonDown("Submit"))
+            {
+                Debug.Log("Cambio a estado dialogo");
                 
-            currentState = State.Dialoguing;
-        }*/ 
-
-        if(isPlayerInRange)
-        {
-            agent.speed = 0;
-
-            anim.SetBool("isQuiet", true);
-        }
-        else
-        {
-            agent.speed = 2;
-            
-            anim.SetBool("isQuiet", false);
-        }
+                currentState = State.Dialoguing;
+            }
 
     }
 
@@ -184,18 +175,24 @@ public class AI_NPCs_Random : MonoBehaviour
         return false;
     }
 
-    /*void Dialoguing()
+void Dialoguing()
+{
+    if(currentGameObject == gameObject)
     {
-    
         agent.speed = 0;
-
-
-    }*/
+    }
+}
 
     
 
     void OnDrawGizmos()
     {
+        foreach(Transform point in destinationPoints)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(point.position, 1);
+        }
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, visionRange);
 

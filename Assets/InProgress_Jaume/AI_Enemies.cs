@@ -146,7 +146,7 @@ public class AI_Enemies : MonoBehaviour
         {
             Debug.Log("Estoy atacando");
 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(9);
 
             currentState = State.Attacking;
         }
@@ -155,7 +155,7 @@ public class AI_Enemies : MonoBehaviour
         {
             Debug.Log("Estoy atacando");
 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(9);
 
             currentState = State.Attacking;
         }
@@ -164,7 +164,7 @@ public class AI_Enemies : MonoBehaviour
         {
             Debug.Log("Estoy atacando");
 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(9);
 
             currentState = State.Attacking;
         }
@@ -173,7 +173,7 @@ public class AI_Enemies : MonoBehaviour
         {
             Debug.Log("Estoy atacando");
 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(9);
 
             currentState = State.Attacking;
         }

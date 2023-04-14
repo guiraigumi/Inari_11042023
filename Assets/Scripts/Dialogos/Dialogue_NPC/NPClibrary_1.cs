@@ -14,7 +14,8 @@ public class NPClibrary_1 : MonoBehaviour
     GameObject npc;
 
     Animator anim;
-    Player player; 
+    public Player player; 
+    public Player player2;
 
     private float typingTime = 0.05f;
 
@@ -26,7 +27,7 @@ public class NPClibrary_1 : MonoBehaviour
     void Awake()
     {
         anim = GetComponentInChildren<Animator>();
-        player = GameObject.Find("Player").GetComponent<Player>();
+
     }
 
 
@@ -64,6 +65,7 @@ public class NPClibrary_1 : MonoBehaviour
         target = GameObject.Find("Front");
         dialogueMark.SetActive(false);
         player.isplayerTalking = true;
+        player2.isplayerTalking = true;
     }
 
     private void NextDialogueLine()
@@ -79,6 +81,7 @@ public class NPClibrary_1 : MonoBehaviour
             dialoguePanel.SetActive(false);
             anim.SetBool("isTalking", false);
             player.isplayerTalking = false;
+            player2.isplayerTalking = false;
             //Time.timeScale = 1f;
         }
     }
@@ -97,7 +100,7 @@ public class NPClibrary_1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision )
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Ruhe"))
         {
             isPlayerInRange = true;
             dialogueMark.SetActive(true);
@@ -107,7 +110,7 @@ public class NPClibrary_1 : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Ruhe"))
         {
             isPlayerInRange = false;
             dialogueMark.SetActive(false);

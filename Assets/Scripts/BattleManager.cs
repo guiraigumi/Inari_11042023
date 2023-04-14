@@ -20,9 +20,6 @@ public class BattleManager : MonoBehaviour
     public trackswitcher playerSwitch;
     public trackswitcher enemySwitch;
 
-    private GameObject luaObject;
-    private Animator luaAnimator;
-
 
     public List<CharacterControl> friendlyCharacters = new List<CharacterControl>();
 
@@ -55,14 +52,10 @@ public class BattleManager : MonoBehaviour
 
         cursorAnimator = GetComponent<Animator>();
         Instance = this;
-        
-        
     }
 
     private void Start()
     {
-        luaObject = GameObject.Find("Lua");
-        luaAnimator = luaObject.GetComponent<Animator>();
         friendlyCharacters = FindObjectsOfType<CharacterControl>().ToList().FindAll(x => x.characterData.characterTeam == CharacterTeam.Friendly);
         enemyCharacters = FindObjectsOfType<CharacterControl>().ToList().FindAll(x => x.characterData.characterTeam == CharacterTeam.Enemy);
         int randomId = 0;
@@ -370,7 +363,6 @@ public class BattleManager : MonoBehaviour
             playerCam.gameObject.SetActive(false);
             enemyCam.gameObject.SetActive(false);
             victoryCam.gameObject.SetActive(true);
-            luaAnimator.SetBool("Victory", true);
             Debug.Log("Match Won!");
             Invoke("LoadSceneWin", 5.0f);
         }

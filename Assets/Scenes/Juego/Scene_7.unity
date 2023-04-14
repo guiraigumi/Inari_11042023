@@ -19487,6 +19487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTalking: 0
+  player: {fileID: 1972970585}
+  player2: {fileID: 1157624287}
   dialoguePanel: {fileID: 1037770768}
   dialogueMark: {fileID: 1482722107}
   dialogueText: {fileID: 1826921825}
@@ -19968,6 +19970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTalking: 0
+  player: {fileID: 0}
+  player2: {fileID: 0}
   dialoguePanel: {fileID: 1037770768}
   dialogueMark: {fileID: 2090063503}
   dialogueText: {fileID: 1826921825}
@@ -42441,6 +42445,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1157624281}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1157624287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2922634094073465247, guid: 225f304abd3935a449ef5ee0883fda49,
+    type: 3}
+  m_PrefabInstance: {fileID: 1157624281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157624282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3a2c6c494c98a47b2054fe30b001b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1158455062
 GameObject:
   m_ObjectHideFlags: 0
@@ -54903,7 +54919,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lua: {fileID: 1972970584}
   ruhe: {fileID: 1157624282}
-  librarian: {fileID: 1894170450}
   radialMenu: {fileID: 607390033}
 --- !u!1 &1475271356
 GameObject:
@@ -63464,6 +63479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTalking: 0
+  player: {fileID: 1972970585}
+  player2: {fileID: 1157624287}
   dialoguePanel: {fileID: 1037770768}
   dialogueMark: {fileID: 1459744677}
   dialogueText: {fileID: 1826921825}

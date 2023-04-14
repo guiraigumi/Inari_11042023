@@ -24,23 +24,23 @@ private AudioSource audio;
 private bool isUsingDefaultMaterial = true;
 
 void Start()
-{
+{  
     Instance = GetComponent<Player>();
-
+    
     anim = GetComponentInChildren<Animator>();
-
+    
     audio = GetComponentInChildren<AudioSource>();
 }
 
 void OnTriggerEnter(Collider other)
 {
-    if (ruhe.activeSelf == true && other.gameObject.CompareTag("Ice"))
+    if(ruhe.activeSelf == true && other.gameObject.CompareTag("Ice"))
     {
         abilityIcon.SetActive(true);
         audio.PlayOneShot(AbilityiconSound);
     }
 
-    if (hangin.activeSelf == true && other.gameObject.CompareTag("Ice"))
+     if(hangin.activeSelf == true && other.gameObject.CompareTag("Ice"))
     {
         abilityIcon.SetActive(true);
         audio.PlayOneShot(AbilityiconSound);
@@ -49,60 +49,78 @@ void OnTriggerEnter(Collider other)
 
 void OnTriggerStay(Collider other)
 {
-    if (other.gameObject.CompareTag("Ice") && Input.GetKeyDown(KeyCode.F))
-    {
-        Renderer iceRenderer = other.gameObject.GetComponent<Renderer>();
+    
 
-        if (iceRenderer != null)
+   if (other.gameObject.CompareTag("Ice") && Input.GetKeyDown(KeyCode.F) && (ruhe.activeSelf == true))
+{
+    // Disable movement script or control script
+    Instance.enabled = false;
+
+    Renderer iceRenderer = other.gameObject.GetComponent<Renderer>();
+    if (iceRenderer != null)
+    {
+        if (isUsingDefaultMaterial)
         {
-            if (hangin.activeSelf == true)
+            iceRenderer.material = newMaterial;
+            abilityIcon.SetActive(false);
+            anim.Play("Ability");
+            isUsingDefaultMaterial = false;
+            hangin_magic.SetActive(true);
+            Invoke("DeactivateHanginMagic", 2f);
+            audio.PlayOneShot(iceConversion);
+        } 
+    }
+
+
+    if (other.gameObject.CompareTag("Ice") && Input.GetKeyDown(KeyCode.F) && (hangin.activeSelf == true))
+    {
+            if (iceRenderer != null)
+        {
+            if (isUsingDefaultMaterial)
             {
-                if (isUsingDefaultMaterial)
-                {
-                    iceRenderer.material = newMaterial;
-                    abilityIcon.SetActive(false);
-                    anim.Play("Ability");
-                    isUsingDefaultMaterial = false;
-                    ruhe_magic.SetActive(true);
-                    Invoke("DeactivateRuheMagic", 2f);
-                    audio.PlayOneShot(iceConversion);
-                    Instance.enabled = false;
-                }
-            }
-            else if (ruhe.activeSelf == true)
-            {
-                if (isUsingDefaultMaterial)
-                {
-                    iceRenderer.material = newMaterial;
-                    abilityIcon.SetActive(false);
-                    anim.Play("Ability");
-                    isUsingDefaultMaterial = false;
-                    hangin_magic.SetActive(true);
-                    Invoke("DeactivateHanginMagic", 2f);
-                    audio.PlayOneShot(iceConversion);
-                    Instance.enabled = false;
-                }
-            }
+                iceRenderer.material = newMaterial;
+                abilityIcon.SetActive(false);
+                anim.Play("Ability");
+                isUsingDefaultMaterial = false;
+                ruhe_magic.SetActive(true);
+                Invoke("DeactivateRuheMagic", 2f);
+                audio.PlayOneShot(iceConversion);
+            } 
         }
+    }
+    
     }
 }
-
-    void OnTriggerExit(Collider other)
+void OnTriggerExit(Collider other)
+{
+    if(ruhe.activeSelf == true && other.gameObject.CompareTag("Ice"))
     {
-        if (other.gameObject.CompareTag("Ice"))
-        {
-            Renderer iceRenderer = other.gameObject.GetComponent<Renderer>();
-            if (iceRenderer != null && iceRenderer.material != defaultMaterial)
-            {
-                iceRenderer.material = defaultMaterial;
-            }
-        }
+        Renderer iceRenderer = other.gameObject.GetComponent<Renderer>();
         abilityIcon.SetActive(false);
+
         isUsingDefaultMaterial = true;
+
+        iceRenderer.material = defaultMaterial;
+
+        //audio.PlayOneShot(waterConversion);
     }
 
+     if(hangin.activeSelf == true && other.gameObject.CompareTag("Ice"))
+    {
+        Renderer iceRenderer = other.gameObject.GetComponent<Renderer>();
+        
+        abilityIcon.SetActive(false);
 
-    void DeactivateHanginMagic()
+        isUsingDefaultMaterial = true;
+
+        iceRenderer.material = defaultMaterial;
+
+        //audio.PlayOneShot(waterConversion);
+    }
+
+}
+
+void DeactivateHanginMagic()
 {
     hangin_magic.SetActive(false);
 
@@ -110,11 +128,10 @@ void OnTriggerStay(Collider other)
     Instance.enabled = true;
 }
 
+
 void DeactivateRuheMagic()
 {
     ruhe_magic.SetActive(false);
-
-    Instance.enabled = true;
 }
 
 }

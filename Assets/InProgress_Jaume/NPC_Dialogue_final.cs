@@ -15,7 +15,8 @@ public class NPC_Dialogue_final : MonoBehaviour
     private Quaternion originalYRotation;
 
     Animator anim;
-    Player player; 
+    public Player player;
+    public Player player2;
 
     AI_NPCs_Random ai;
 
@@ -76,6 +77,7 @@ public class NPC_Dialogue_final : MonoBehaviour
 
         npc.transform.LookAt(targetPosition);
         player.isplayerTalking = true;
+        player2.isplayerTalking = true;
     }
 
     private void NextDialogueLine()
@@ -93,6 +95,7 @@ public class NPC_Dialogue_final : MonoBehaviour
 
             npc.transform.SetPositionAndRotation(new Vector3(npc.transform.position.x, npc.transform.position.y, npc.transform.position.z), originalYRotation);
             player.isplayerTalking = false;
+            player2.isplayerTalking = false;
 
             ai.currentState = AI_NPCs_Random.State.Travelling;
 

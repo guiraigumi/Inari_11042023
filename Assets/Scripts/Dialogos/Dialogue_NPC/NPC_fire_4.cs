@@ -15,7 +15,8 @@ public class NPC_fire_4 : MonoBehaviour
     private Quaternion originalYRotation;
 
     Animator anim;
-    Player player; 
+    public Player player;
+    public Player player2;
 
     private float typingTime = 0.05f;
 
@@ -71,6 +72,7 @@ public class NPC_fire_4 : MonoBehaviour
 
         npc.transform.LookAt(targetPosition);
         player.isplayerTalking = true;
+        player2.isplayerTalking = true;
     }
 
     private void NextDialogueLine()
@@ -89,6 +91,7 @@ public class NPC_fire_4 : MonoBehaviour
 
             npc.transform.SetPositionAndRotation(new Vector3(npc.transform.position.x, npc.transform.position.y, npc.transform.position.z), originalYRotation);
             player.isplayerTalking = false;
+            player2.isplayerTalking = false;
             //Time.timeScale = 1f;
         }
     }
