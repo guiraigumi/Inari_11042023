@@ -11,6 +11,8 @@ public class PlayerManager_2players : MonoBehaviour
     private GameObject activeCharacter;
     private Vector3 lastPosition;
 
+    public GameObject librarian;
+
     [SerializeField] private GameObject radialMenu;
 
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class PlayerManager_2players : MonoBehaviour
     {
         activeCharacter = lua;
         lastPosition = lua.transform.position;
+        librarian = GameObject.Find("Bibliotecaria");
     }
 
     // Update is called once per frame
@@ -25,20 +28,20 @@ public class PlayerManager_2players : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.Q))
-    {
-        // Disable the animator component on the active character
-        activeCharacter.GetComponentInChildren<Animator>().enabled = false;
+        {
+            // Disable the animator component on the active character
+            activeCharacter.GetComponentInChildren<Animator>().enabled = false;
 
-        // Show the radial menu and pause the game
-        radialMenu.SetActive(true);
-        Time.timeScale = 0f;
-    }
+            // Show the radial menu and pause the game
+            radialMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
 
         else
         {
-            if((Input.GetKeyDown(KeyCode.Escape)))
+            if ((Input.GetKeyDown(KeyCode.Escape)))
             {
-                
+
                 activeCharacter.GetComponentInChildren<Animator>().enabled = true;
 
                 radialMenu.SetActive(false);
@@ -47,7 +50,7 @@ public class PlayerManager_2players : MonoBehaviour
             }
         }
 
-            if((radialMenu.activeInHierarchy == true) && Input.GetKeyDown(KeyCode.Alpha1))
+        if ((radialMenu.activeInHierarchy == true) && Input.GetKeyDown(KeyCode.Alpha1))
         {
             lastPosition = activeCharacter.transform.position;
             lua.transform.position = lastPosition;
@@ -57,9 +60,11 @@ public class PlayerManager_2players : MonoBehaviour
             radialMenu.SetActive(false);
             Time.timeScale = 1f;
             activeCharacter.GetComponentInChildren<Animator>().enabled = true;
+            librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = true;
+            librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = false;
         }
 
-        if((radialMenu.activeInHierarchy == true) && Input.GetKeyDown(KeyCode.Alpha2))
+        if ((radialMenu.activeInHierarchy == true) && Input.GetKeyDown(KeyCode.Alpha2))
         {
             lastPosition = activeCharacter.transform.position;
             ruhe.transform.position = lastPosition;
@@ -69,8 +74,10 @@ public class PlayerManager_2players : MonoBehaviour
             radialMenu.SetActive(false);
             Time.timeScale = 1f;
             activeCharacter.GetComponentInChildren<Animator>().enabled = true;
+            librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = true;
+            librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = false;
         }
-        
-}
+
+    }
 }
 
