@@ -108,9 +108,9 @@ public class NPC_water_1 : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision )
+    private void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Ruhe"))
         {
             isPlayerInRange = true;
             dialogueMark.SetActive(true);
@@ -120,7 +120,7 @@ public class NPC_water_1 : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Ruhe"))
         {
             isPlayerInRange = false;
             dialogueMark.SetActive(false);

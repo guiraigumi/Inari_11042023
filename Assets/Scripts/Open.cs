@@ -27,20 +27,22 @@ public class Open : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             isPlayerInRange = true;
             doorMark.SetActive(true);
         }
     }
-    private void OnTriggerExit(Collider collision)
+
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             isPlayerInRange = false;
             doorMark.SetActive(false);
         }
     }
+
 }

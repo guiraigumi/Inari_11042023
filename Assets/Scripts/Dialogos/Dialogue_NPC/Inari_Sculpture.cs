@@ -14,7 +14,8 @@ public class Inari_Sculpture : MonoBehaviour
     GameObject npc;
     public GameObject Cam;
 
-    Player player; 
+    public Player player;
+    public Player player2;
 
     private float typingTime = 0.05f;
 
@@ -61,6 +62,7 @@ public class Inari_Sculpture : MonoBehaviour
         StartCoroutine(ShowLine());
         dialogueMark.SetActive(false);
         player.isplayerTalking = true;
+        player2.isplayerTalking = true;
         Cam.gameObject.SetActive(true);
     }
 
@@ -76,6 +78,7 @@ public class Inari_Sculpture : MonoBehaviour
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
             player.isplayerTalking = false;
+            player2.isplayerTalking = false;
             Cam.gameObject.SetActive(false);
             //Time.timeScale = 1f;
         }
@@ -93,9 +96,9 @@ public class Inari_Sculpture : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision )
+    private void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Ruhe"))
         {
             isPlayerInRange = true;
             dialogueMark.SetActive(true);
@@ -105,7 +108,7 @@ public class Inari_Sculpture : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Ruhe"))
         {
             isPlayerInRange = false;
             dialogueMark.SetActive(false);

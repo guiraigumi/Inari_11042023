@@ -12,6 +12,8 @@ public class PlayerManager_2players : MonoBehaviour
     private Vector3 lastPosition;
 
     public GameObject librarian;
+    public GameObject nurse;
+    public GameObject professor;
 
     [SerializeField] private GameObject radialMenu;
 
@@ -21,6 +23,8 @@ public class PlayerManager_2players : MonoBehaviour
         activeCharacter = lua;
         lastPosition = lua.transform.position;
         librarian = GameObject.Find("Bibliotecaria");
+        nurse = GameObject.Find("Enfermero");
+        professor = GameObject.Find("Profesor");
     }
 
     // Update is called once per frame
@@ -62,6 +66,10 @@ public class PlayerManager_2players : MonoBehaviour
             activeCharacter.GetComponentInChildren<Animator>().enabled = true;
             librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = true;
             librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = false;
+            nurse.GetComponent<Dialogue_enfermero_Lua>().enabled = true;
+            nurse.GetComponent<Dialogue_enfermero_Ruhe>().enabled = false;
+            professor.GetComponent<Dialogue_Profesor_Lua>().enabled = true;
+            professor.GetComponent<Dialogue_profesor_Ruhe>().enabled = false;
         }
 
         if ((radialMenu.activeInHierarchy == true) && Input.GetKeyDown(KeyCode.Alpha2))
@@ -76,6 +84,10 @@ public class PlayerManager_2players : MonoBehaviour
             activeCharacter.GetComponentInChildren<Animator>().enabled = true;
             librarian.GetComponent<Dialogue_Libraria_Ruhe>().enabled = true;
             librarian.GetComponent<Dialogue_Libraria_Lua>().enabled = false;
+            nurse.GetComponent<Dialogue_enfermero_Ruhe>().enabled = true;
+            nurse.GetComponent<Dialogue_enfermero_Lua>().enabled = false;
+            professor.GetComponent<Dialogue_profesor_Ruhe>().enabled = true;
+            professor.GetComponent<Dialogue_Profesor_Lua>().enabled = false;
         }
 
     }
