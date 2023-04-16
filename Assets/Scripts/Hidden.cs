@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Hidden : MonoBehaviour
 {
-    [SerializeField] private MeshRenderer hiddenObject;
+    [SerializeField] public GameObject hiddenObject;
 
 
     void OnTriggerStay(Collider collision)
     {
         if(collision.gameObject.CompareTag("Player") && LuaOnFieldAbility.Instance.fire == true)
         {
-            hiddenObject.enabled = true;
+            hiddenObject.SetActive(true);
         }
     }
 
@@ -19,7 +19,7 @@ public class Hidden : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player") || LuaOnFieldAbility.Instance.fire == false)
         {
-            hiddenObject.enabled = false;
+            hiddenObject.SetActive(false);
         }
     }
 }

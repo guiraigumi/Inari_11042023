@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour
 
    public void LoadLvlSubterraneo()
    {
-    SceneManager.LoadScene("Subterráneo LVL 2");
+    SceneManager.LoadScene("Scene_17");
    }
 
    public void BattleScene()

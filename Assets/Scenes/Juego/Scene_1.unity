@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.36157, g: 325.07837, b: 430.26367, a: 1}
+  m_IndirectSpecularColor: {r: 262.38354, g: 325.1084, b: 430.30957, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3759,7 +3759,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 1
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -4497,6 +4497,9 @@ MonoBehaviour:
   transitionSFX: {fileID: 0}
   bookSFX: {fileID: 0}
   doorSFX: {fileID: 0}
+  waterupSFX: {fileID: 0}
+  jumpSFX: {fileID: 0}
+  fireSFX: {fileID: 0}
 --- !u!82 &1106058878
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5281,6 +5284,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lua: {fileID: 1972970584}
   ruhe: {fileID: 0}
+  hangin: {fileID: 0}
+  kalju: {fileID: 0}
+  radialMenu: {fileID: 0}
 --- !u!4 &1475225358
 Transform:
   m_ObjectHideFlags: 0
@@ -7112,6 +7118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTalking: 0
+  player: {fileID: 0}
+  player2: {fileID: 0}
   dialoguePanel: {fileID: 1037770768}
   dialogueMark: {fileID: 182511774}
   dialogueText: {fileID: 1826921825}

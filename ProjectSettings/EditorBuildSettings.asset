@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/Scenes/After_Battle.unity
     guid: 8710e0765e2b69c4e9d312e0a3e5706d
   - enabled: 1
-    path: Assets/Scenes/Juego/Subterraneo_LVL1_Debug.unity
+    path: Assets/Scenes/Juego/Scene_16.unity
     guid: 1ca94fd01cb55e94ca495a6b57543b4b
   - enabled: 1
     path: Assets/Scenes/Battle Scene.unity
@@ -56,6 +56,39 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Juego/Scene_10.unity
     guid: 1858dbdc923720349a71988760802bb4
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_11.unity
+    guid: ad309e8bff7473d42a1b43ac51d04d9d
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_13.unity
+    guid: 312fbb7b92765e04bb514b762bacfb9a
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_12.unity
+    guid: 88f9623c228585b498d9053150a96cbf
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_14.unity
+    guid: 20b610914b215cb49a3379e1fae2592e
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_15.unity
+    guid: 5e7aa055a6c2e444180160b9299e298d
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_17.unity
+    guid: 96dc98bd654aa594e9669bd093de8257
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_18.unity
+    guid: 4664d8be6d12bf54687b1cc416247278
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_19.unity
+    guid: e0ac44244ee56c14783d86c19f61fea7
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_17 1.unity
+    guid: d31957a4e21c6484b9ceed624fec054f
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_17 2.unity
+    guid: f148567705598884fb2069288d029a2e
+  - enabled: 1
+    path: Assets/Scenes/Juego/Scene_20.unity
+    guid: 3d905ca93620b5447a6f6b76b02f6a48
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}
