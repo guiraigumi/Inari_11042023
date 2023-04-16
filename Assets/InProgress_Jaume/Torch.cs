@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Torch : MonoBehaviour
+
 {
     public int torchNumber;
+
+    public static Torch torch;
 
     public GameObject fireParticles;
     public GameObject torchLight;
@@ -19,6 +23,8 @@ public class Torch : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
+
+        torch = this;
     }
 
     void OnTriggerEnter(Collider collision)
@@ -31,55 +37,37 @@ public class Torch : MonoBehaviour
                 audio.PlayOneShot(AbilityiconSound);
             }
         }
-
-        /*if (collision.gameObject.CompareTag("Player") && istorchOn == false && LuaOnFieldAbility.Instance.fire == true)
-        {
-            audio.PlayOneShot(torchSound);
-            abilityIcon.SetActive(false);
-            torchLight.gameObject.SetActive(true);
-            fireParticles.gameObject.SetActive(true);
-
-            for(int i = 0; i < TorchManager.Instance.torchesLit.Length; i++)
-            {
-                if(TorchManager.Instance.torchesLit[i] == 0)
-                {
-                    TorchManager.Instance.torchesLit[i] = torchNumber;
-                    return;
-                }
-            }
-        }*/
     }
 
     void OnTriggerStay(Collider collision)
     {
-
-        if (collision.gameObject.CompareTag("Player") && LuaOnFieldAbility.Instance.fire == true && istorchOn == false)
+        if (collision.gameObject.CompareTag("Player") && LuaOnFieldAbility.Instance.fire == true && !istorchOn && enabled)
         {
             torchLight.gameObject.SetActive(true);
-
             fireParticles.gameObject.SetActive(true);
-
             abilityIcon.SetActive(false);
-
             istorchOn = true;
-
             audio.PlayOneShot(torchSound);
 
-
-            for(int i = 0; i < TorchManager.Instance.torchesLit.Length; i++)
+            for (int i = 0; i < TorchManager.Instance.torchesLit.Length; i++)
             {
-                if(TorchManager.Instance.torchesLit[i] == 0)
+                if (TorchManager.Instance.torchesLit[i] == 0)
                 {
                     TorchManager.Instance.torchesLit[i] = torchNumber;
                     break;
                 }
             }
 
-            if(TorchManager.Instance.torchesLit[3] != 0)
+            if (TorchManager.Instance.torchesLit[3] != 0)
             {
-                TorchManager.Instance.CheckOrder();
+                TorchManager.Instance.CheckOrder(this);
             }
         }
+    }
+
+    void ActivateTorchScript()
+    {
+        enabled = true;
     }
 
     void OnTriggerExit(Collider collision)
