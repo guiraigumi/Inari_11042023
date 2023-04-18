@@ -77,11 +77,11 @@ public class PlayerManager_3players : MonoBehaviour
         if ((radialMenu.activeInHierarchy == true) && Input.GetKeyDown(KeyCode.Alpha3))
         {
             lastPosition = activeCharacter.transform.position;
-            ruhe.transform.position = lastPosition;
+            hangin.transform.position = lastPosition;
             lua.SetActive(false);
             ruhe.SetActive(false);
             hangin.SetActive(true);
-            activeCharacter = ruhe;
+            activeCharacter = hangin;
             radialMenu.SetActive(false);
             Time.timeScale = 1f;
             activeCharacter.GetComponentInChildren<Animator>().enabled = true;

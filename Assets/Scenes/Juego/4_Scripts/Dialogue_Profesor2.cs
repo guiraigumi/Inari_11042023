@@ -110,12 +110,17 @@ public class Dialogue_Profesor2 : MonoBehaviour
             npc.transform.SetPositionAndRotation(new Vector3(npc.transform.position.x, npc.transform.position.y, npc.transform.position.z), originalYRotation);
             player.isplayerTalking = false;
             //Time.timeScale = 1f;
+
+            if (lineIndex >= dialogueLines.Length)
+                {
+                    // Load the next scene here
+                    SceneManager.LoadScene("Scene_3");
+                }
         }
 
         if (lineIndex >= dialogueLines.Length)
         {
-            // Load the next scene here
-            SceneManager.LoadScene("Scene_5");
+
         }
     }
 
